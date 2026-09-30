@@ -22,9 +22,14 @@ services:
     image: 'bahmni/proxy:${PROXY_IMAGE_TAG:?}'
     #volumes:
       # - ${CERTIFICATE_PATH}:/etc/tls
-    ports:
-      - '80:80'
-      - '443:443'
+    # ports:
+    #   - '80:80'
+    #   - '443:443'
+    expose:
+      - "80"
+    networks:
+      - default
+      - dokploy-network
     logging: *log-config
     restart: ${RESTART_POLICY}
     environment:
