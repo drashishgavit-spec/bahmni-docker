@@ -24,6 +24,10 @@ services:
     networks:
       - default
       - dokploy-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.proxy.loadbalancer.server.port=443"
+      - "traefik.http.services.proxy.loadbalancer.server.scheme=https"
     logging: *log-config
     restart: ${RESTART_POLICY}
     environment:
