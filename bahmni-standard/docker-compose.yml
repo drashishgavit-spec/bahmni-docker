@@ -20,6 +20,7 @@ services:
     image: 'bahmni/proxy:${PROXY_IMAGE_TAG:?}'
     expose:
       - "80"
+      - "443"
     networks:
       - default
       - dokploy-network
